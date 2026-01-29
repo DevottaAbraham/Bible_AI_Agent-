@@ -27,28 +27,31 @@ export const ChatInput=()=> {
   };
 
   return (
-    <div className="p-4 border-t border-zinc-200 dark:border-white/10 bg-white/95 dark:bg-black/95 backdrop-blur-sm pb-6 md:pb-8 transition-colors duration-300 relative z-20">
-      <div className="max-w-3xl mx-auto flex items-center gap-2 bg-zinc-100 dark:bg-zinc-900/50 border border-zinc-200 dark:border-white/10 rounded-2xl p-2 focus-within:border-blue-500/50 focus-within:ring-1 focus-within:ring-blue-500/20 transition-all">
+    <div className="p-4 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
+      <div className="max-w-3xl mx-auto relative">
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
           onKeyDown={handleKeyDown}
           style={{ fontSize: size || '16px' }}
           placeholder="Ask a question about the Bible..."
-          className="flex-1 bg-transparent text-zinc-900 dark:text-white placeholder-zinc-500 px-4 py-2 outline-none min-w-0"
+          className="w-full bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-500 px-5 py-4 pr-14 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all border border-transparent focus:border-indigo-500/20"
         />
 
         <button
           onClick={handleSend}
           disabled={!text.trim()}
-          className={`p-3 rounded-xl transition-all duration-200 flex-shrink-0 ${
+          className={`absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-lg transition-all duration-200 ${
             text.trim()
-              ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20 hover:bg-blue-500 active:scale-95"
-              : "bg-zinc-200 dark:bg-zinc-800 text-zinc-400 dark:text-zinc-600 cursor-not-allowed"
+              ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm"
+              : "bg-transparent text-slate-400 cursor-not-allowed"
           }`}
         >
-          <FaPaperPlane size={18} />
+          <FaPaperPlane size={14} />
         </button>
+      </div>
+      <div className="text-center mt-2">
+        <p className="text-xs text-slate-400 dark:text-slate-600">AI can make mistakes. Check important info.</p>
       </div>
     </div>
   );

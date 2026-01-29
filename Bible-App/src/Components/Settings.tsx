@@ -1,47 +1,37 @@
 import { useTheme } from "../store/themeStore";
 import { useFont } from "../store/fontStore";
-import { FaMoon, FaSun, FaFont } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 export const Settings = () => {
   const { theme, toggleTheme } = useTheme();
   const { increase, decrease } = useFont();
 
   return (
-    <div className="border-t border-zinc-200 dark:border-white/10 pt-4 mt-auto">
-      <div className="space-y-3">
+    <div className="pt-2 mt-auto">
+      <div className="grid grid-cols-2 gap-2 mb-2">
         <button
           onClick={toggleTheme}
-          className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-white/5 dark:hover:bg-white/10 transition-colors text-sm font-medium text-zinc-700 dark:text-zinc-200"
+          className="flex items-center justify-center gap-2 p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-sm font-medium text-slate-700 dark:text-slate-300"
         >
-          <span className="flex items-center gap-3">
-            {theme === "dark" ? <FaMoon className="text-blue-400" /> : <FaSun className="text-yellow-400" />}
-            <span>{theme === "dark" ? "Dark Mode" : "Light Mode"}</span>
-          </span>
+            {theme === "dark" ? <FaMoon className="text-indigo-400" /> : <FaSun className="text-amber-400" />}
+            <span>{theme === "dark" ? "Dark" : "Light"}</span>
         </button>
 
-        <div className="flex items-center justify-between bg-zinc-100 dark:bg-white/5 rounded-xl p-1">
+        <div className="flex items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-1">
           <button
             onClick={decrease}
-            className="flex-1 py-2 rounded-lg hover:bg-zinc-200 dark:hover:bg-white/10 transition-colors text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white flex justify-center items-center"
+            className="flex-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded text-slate-600 dark:text-slate-400 text-xs font-bold py-1"
             title="Decrease font size"
           >
-            <span className="text-xs font-bold">A-</span>
+            A-
           </button>
-          
-          <div className="w-px h-4 bg-zinc-300 dark:bg-white/10"></div>
-
-          <div className="px-4 text-zinc-400 dark:text-zinc-500">
-            <FaFont size={14} />
-          </div>
-
-          <div className="w-px h-4 bg-zinc-300 dark:bg-white/10"></div>
-
+          <div className="w-px h-3 bg-slate-200 dark:bg-slate-800 mx-1"></div>
           <button
             onClick={increase}
-            className="flex-1 py-2 rounded-lg hover:bg-zinc-200 dark:hover:bg-white/10 transition-colors text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white flex justify-center items-center"
+            className="flex-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded text-slate-600 dark:text-slate-400 text-sm font-bold py-1"
             title="Increase font size"
           >
-            <span className="text-lg font-bold">A+</span>
+            A+
           </button>
         </div>
       </div>
