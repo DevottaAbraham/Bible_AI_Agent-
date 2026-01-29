@@ -28,9 +28,9 @@ export const ChatWindow = () => {
       <header className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-10">
         <h1 
           style={{ fontSize: size ? `${Number(size) + 4}px` : '24px' }}
-          className="font-semibold text-slate-800 dark:text-slate-100 text-lg flex items-center gap-2"
+          className="font-semibold text-slate-800 dark:text-slate-100 text-lg flex item-center gap-2"
         >
-          📖 Bible AI Agent
+                                         📖 Bible AI Agent
         </h1>
       </header>
 
