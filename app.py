@@ -7,7 +7,7 @@ import os
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("Front_End_URL")],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
