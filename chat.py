@@ -1,7 +1,8 @@
 import requests
 import json
+import os
 
-API_KEY="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"
+API_KEY=os.getenv("API_KEY")
 
 BASE_URL = "https://api.groq.com/openai/v1"
 MODEL = "llama-3.1-8b-instant"
