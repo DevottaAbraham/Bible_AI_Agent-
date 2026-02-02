@@ -4,8 +4,8 @@ import os
 
 API_KEY=os.getenv("API_KEY")
 
-BASE_URL = "https://api.groq.com/openai/v1"
-MODEL = "llama-3.1-8b-instant"
+BASE_URL = os.getenv("BASE_URL")
+MODEL = os.getenv("MODEL")
 
 
 def ask_llm(context, question):

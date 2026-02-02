@@ -2,11 +2,12 @@ from fastapi import FastAPI
 from search import search
 from fastapi.middleware.cors import CORSMiddleware
 from chat import ask_llm
+import os
 
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[os.getenv("Front_End_URL")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
