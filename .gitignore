@@ -1,0 +1,20 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+
+.env
+
+.venv/Include/Lib/site-packages/dontenv
+.venu# Environment variables
+
+
+# Virtual environments
+.venv/
+.venu/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node / misc
+node_modules/
