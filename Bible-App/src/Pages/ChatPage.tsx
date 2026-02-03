@@ -1,16 +1,41 @@
-import { useState } from 'react';
-import {Sidebar} from '../Components/Siderbar';
+import { useState } from "react";
+import {ChatWindow }from "../Components/ChatWindow";
+import {ChatInput} from "../Components/ChatInput";
+import { sendMessage } from "../api/chatApi";
 
-export const ChatPage=()=>{
-  const [open, setOpen] = useState(false);
+export default function ChatPage() {
+  const [messages, setMessages] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  const handleSend = async (text: string) => {
+    setMessages((prev) => [
+      ...prev,
+      { role: "user", content: text }
+    ]);
+
+    setLoading(true);
+
+    try {
+      const data = await sendMessage(text);
+
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: data.answer }
+      ]);
+    } catch (err) {
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: "Server error" }
+      ]);
+    }
+
+    setLoading(false);
+  };
 
   return (
-  
-  <div className="flex flex-col flex-1 justify-center ">
-     <Sidebar open={open} setOpen={setOpen} />
-      
-      </div>
-
-  )
-
+    <>
+      <ChatWindow messages={messages} loading={loading} />
+      <ChatInput onSend={handleSend} />
+    </>
+  );
 }
